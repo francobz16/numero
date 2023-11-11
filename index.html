@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Números</title>
+    <title>Número entre 1 y 500</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,19 +25,26 @@
 </head>
 <body>
 
-    <h1>Números al azar entre 1 y 1000</h1>
+    <h1>Número aleatorio entre 1 y 500</h1>
 
-    <div id="numeroMostrado">Número: <span id="numeroGenerado">-</span></div>
+    <div id="numeroMostrado">Tu número es: <span id="numeroGenerado">-</span></div>
 
-    <button id="generarNumero" onclick="generarNumero()">Obtener número</button>
+    <button id="generarNumero" onclick="generarNumero()">Generar Número</button>
 
     <script>
-        function generarNumero() {
-            // Genera un número aleatorio entre 1 y 100
-            var numeroAleatorio = Math.floor(Math.random() * 1000) + 1;
+        var numeroGenerado = 0; // Variable para almacenar el número generado
 
-            // Muestra el número generado en el elemento con id "numeroGenerado"
-            document.getElementById("numeroGenerado").innerText = numeroAleatorio;
+        function generarNumero() {
+            // Verifica si el número ya ha sido generado
+            if (numeroGenerado === 0) {
+                // Genera un número aleatorio entre 1 y 1000
+                numeroGenerado = Math.floor(Math.random() * 500) + 1;
+
+                // Muestra el número generado en el elemento con id "numeroGenerado"
+                document.getElementById("numeroGenerado").innerText = numeroGenerado;
+            } else {
+                alert("Ya generaste un número. Recargá la página para generar otro.");
+            }
         }
     </script>
 
